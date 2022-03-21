@@ -19,12 +19,8 @@
         type="text/javascript">
     </script>
     <script>
-        // Not sure what this is doing
+        // this lets you interface with the browser's metamask extension, it's not from ethers but rather metamask
         window.ethereum.enable()
-        // Think this links to the rinkeby testnet somehow
-        var provider = new ethers.providers.Web3Provider(
-            window.ethereum, "rinkeby"
-        );
         // Set the address of the smart contract
         var MoodContractAddress = "0x0D6dc03c9A68E6f529A96BD2dB089df11999225C";
         // Set the ABI which is a standardised way to communicate with smart contracts
@@ -61,12 +57,16 @@
         var signer
         // when you call a function on a smart contract, someone has to call it, and we have to authenticate that person.
         // we authenticate them by accessing their smart wallet
-        // we previously accessed the smart wallet by initialising "provider" and calling window.ethereum
-        // window.ethereum is a tool provided by metamask - https://docs.metamask.io/guide/ethereum-provider.html
+        // First we need to access the smart wallet, and the particular testnet from that wallet. We call this the provider. 
+        // Ethers has a tool to get the provider
+        var provider = new ethers.providers.Web3Provider(
+            window.ethereum, "rinkeby"
+        );
+        // Second we do authentication
         provider.listAccounts().then(function (accounts) {
             // here we get the signer, as the first account in an array of accounts
             signer = provider.getSigner(accounts[0]);
-            // here we create 'our copy' of the contract that we can interface with
+            // here we create 'our copy' of the contract that we can interface with, and attach a signer
             MoodContract = new ethers.Contract(
                 MoodContractAddress,
                 MoodContractABI,
