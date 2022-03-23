@@ -1,0 +1,5 @@
+1. To start the project, run npm install hardhat
+2. To create a project, run npx hardhat and select the appropriate option
+3. For some reason you need to include dependencies in hardhat.config.js
+4. To write contracts create a 'contracts' folder and stick 'em in there
+5. To compile, use npx hardhat compile
