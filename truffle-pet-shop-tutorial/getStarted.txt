@@ -1,0 +1,15 @@
+Hey so this is how you get up and running with a working codebase.
+
+1. First you'll need to link your Ganache if you haven't done so already. I believe Truffle unbox does this for you already.
+1.1. Ensure that you're pointing at Ganache in truffle-config.js
+
+2. Second you'll need to add your smart contracts to that chain. Truffle migrate
+2.1. You may need to restart Ganache if you've run out of ETH and can't deploy new contracts
+
+3. If you like, you can also call truffle test to test
+
+4. You'll need to serve your frontend app at some point. If you were making a next project you could just do with with "next" or "next build" and here's a guide for more https://trufflesuite.com/boxes/truffle-next/index.html
+4.1. However for ease, Truffle comes preloaded with lite-server. Just write lite-server in the terminal
+
+5. You'll need to link your frontend to your Ganache now also - thanks to app.js you request access to the provider through which the user can connect to the right network
+5.1. Ensure that you're on your Ganache Metamask and not another metamask. This will give you access to test ETH
