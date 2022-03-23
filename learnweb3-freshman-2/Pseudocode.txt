@@ -1,0 +1,36 @@
+In this exercise we're going to create our first cryptocurrency and deploy it to a public test network.
+
+1. Write a contract for a fungible token
+1.1. We can use a hardhat template to create a contract and write tests
+
+2. Compile the contract
+2.1. We can do hardhat compile
+
+3. Deploy it to a testnet
+3.1. We can learn how to deploy contracts using hardhat
+
+4. Perform a read balance operation with the backend
+4.1. A provider (ethers, with Alchemy? With Infura?)
+4.2. A way to treat the contract as a local JS object that we can perform methods on. Ethers may help here
+4.3. A script to run operations on that JS object
+
+5. Perform a transfer with the backend
+5.1. We can write a backend script that takes:
+5.2. A provider (without MetaMask I'm not sure what we can use. Perhaps we can use Alchemy or Infura to perform operations on a blockchain directly.)
+5.3. A signer (without MetaMask this will likely just be a private key that you use directly.)
+5.4. A way to treat the contract as a local JS object that we can perform methods on. Ethers may help here
+5.5. A script to run operations on that JS object
+
+6. Perform a read balance operation with the frontend
+6.1. Some html and buttons
+6.2. Some JS we inject into the page, potentially using React
+6.3. Connect to prodiver using ethers and MetaMask
+6.4. A way to treat the contract as a local JS object that we can perform methods on. Ethers may help here
+6.5. A script to run operations on that JS object
+
+7. Perform a transfer with the frontend
+7.1. Some html and buttons
+7.2. Some JS we inject into the page, potentially using React
+7.3. Connect to provider using ethers and MetaMask
+7.4. Connect to signer using ethers and MetaMask
+
