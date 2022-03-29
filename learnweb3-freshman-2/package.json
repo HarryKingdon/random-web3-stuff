@@ -1,0 +1,20 @@
+{
+  "name": "hardhat-project",
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "babel-plugin-styled-components": "^2.0.6",
+    "ethereum-waffle": "^3.4.4",
+    "hardhat": "^2.9.1"
+  },
+  "dependencies": {
+    "@ethersproject/bignumber": "^5.6.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@openzeppelin/contracts": "^4.5.0",
+    "babel": "^6.23.0",
+    "dotenv": "^16.0.0",
+    "styled-components": "^5.3.5"
+  }
+}

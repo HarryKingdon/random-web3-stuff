@@ -2,17 +2,41 @@ In this exercise we're going to create our first cryptocurrency and deploy it to
 
 1. Write a contract for a fungible token
 1.1. We can use a hardhat template to create a contract and write tests
+1.2. I'm using OZ's templated ERC20 contract
 
 2. Compile the contract
 2.1. We can do hardhat compile
+2.2. Note that this creates ABIs in a new directory, artifacts/contracts
 
 3. Deploy it to a testnet
-3.1. We can learn how to deploy contracts using hardhat
+
+3.1. We deploy it to hardhat network by using npx hardhat run scripts/deployToHN.js, and write a script called deployToHN.js
+3.1.1. There is no need to start the network in the terminal. If no network is specified hardhat deploys it to the default network, the local hardhat network
+3.1.2. Define an async method, and then call it
+3.1.3. The method should await ethers.getContractFactory("ContractName")
+3.1.4. then await ContractFactory.deploy(any_constructor_params) and then await contract.deployed()
+
+3.2. We can also deploy it to a public testnet
+3.2.1. Write a similar file called deployToRinkeby
+3.2.2. This time you need to add a signer. Use ethers.getSigners()[0]. It will get signers from the network you specify in hardhat.config.js
+3.2.3. Point hardhat at Rinkeby by modifying hardhat.config.js. Specify a network in networks = {}
+3.2.4. You will need to use Infura or Alchemy to establish a connection with the network. 
+3.2.4.1. You can think about Alchemy's connection to the blockchain as analogous to Heroku's connection with servers and the DNS network
+3.2.5. Then run npx hardhat run scripts/deployToRinkeby.js --network rinkeby to find the right network in your file
+3.2.6. Use EtherScan and/or Alchemy to check that it deployed!
 
 4. Perform a read balance operation with the backend
-4.1. A provider (ethers, with Alchemy? With Infura?)
-4.2. A way to treat the contract as a local JS object that we can perform methods on. Ethers may help here
-4.3. A script to run operations on that JS object
+
+4.1. Read a property of the contract itself
+4.1.1. A provider (ethers, with Alchemy? With Infura?)
+4.1.2. A way to treat the contract as a local JS object that we can perform methods on. Ethers may help here
+4.1.3. A script to run operations on that JS object
+
+4.2. Read a property of a user who has some tokens
+4.1.1. A provider (ethers, with Alchemy? With Infura?)
+4.1.2. A signer so that we can read properties of the user
+4.1.3. A script to run operations on that JS object
+
 
 5. Perform a transfer with the backend
 5.1. We can write a backend script that takes:
@@ -21,16 +45,14 @@ In this exercise we're going to create our first cryptocurrency and deploy it to
 5.4. A way to treat the contract as a local JS object that we can perform methods on. Ethers may help here
 5.5. A script to run operations on that JS object
 
+Now re-do 4.2 to see if it worked
+
 6. Perform a read balance operation with the frontend
-6.1. Some html and buttons
-6.2. Some JS we inject into the page, potentially using React
-6.3. Connect to prodiver using ethers and MetaMask
-6.4. A way to treat the contract as a local JS object that we can perform methods on. Ethers may help here
-6.5. A script to run operations on that JS object
+6.1. Build a frontend in React
+6.1.1. Use next, potentially build a separate repo
 
-7. Perform a transfer with the frontend
-7.1. Some html and buttons
-7.2. Some JS we inject into the page, potentially using React
-7.3. Connect to provider using ethers and MetaMask
-7.4. Connect to signer using ethers and MetaMask
+NOT SURE HERE - WOULD YOU SEND REQUESTS TO A BACKEND THAT INTERFACES WITH ALCHEMY AS A PROVICER, OR WOULD YOU USE METAMASK AS THE PROVIDER AND DO IT ALL IN THE FRONTEND?
 
+7. Perform a transfer balance operation with the frontend
+
+8. Can you listen to events?
