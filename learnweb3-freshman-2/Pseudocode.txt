@@ -49,7 +49,9 @@ Now re-do 4.2 to see if it worked
 
 6. Perform a read balance operation with the frontend
 6.1. Build a frontend in React
-6.1.1. Use next, potentially build a separate repo
+6.1.1. Use create-next-app. It's really easy. See the next "getting started" documentation. They can help with routing, meta tags, styling, react lifecycle methods and more.
+6.2. Build a backend to receive requests (more secure)
+6.2.1. Build an express.js file and run it using node express.js. It's really easy. See the expressJS getting started documentation.
 
 NOT SURE HERE - WOULD YOU SEND REQUESTS TO A BACKEND THAT INTERFACES WITH ALCHEMY AS A PROVICER, OR WOULD YOU USE METAMASK AS THE PROVIDER AND DO IT ALL IN THE FRONTEND?
 
